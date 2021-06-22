@@ -22,7 +22,7 @@ if [ ! -f $HOST_FILE ]; then
         exit 2
 fi
 
-for IP in `cat $HOST_FILE`; do
+for IP in 'cat $HOST_FILE'; do
         ssh-copy-id -o StrictHostKeyChecking=no -i $PUBLIC_KEY_FILE $USER_NAME@$IP 2>$ERROR_FILE
         RESULT=$?
         if [ $RESULT -eq 0 ]; then
